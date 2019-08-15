@@ -1,0 +1,52 @@
+﻿@page
+@model CsnWorkOrders.Pages.Reports.OpenedClosedPeriodicallyModel
+@{
+    ViewData["Title"] = "OpenedClosedPeriodically";
+}
+
+<h2>Maintenance Work Orders</h2>
+
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" 
+                   asp-for="SearchTerm"/>
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+
+
+</form>
+
+
+<table class="table table-responsive table-hover">
+
+    @foreach (var workorder in Model.WorkOrders)
+    {
+    <tr>
+        <td>@workorder.Department.Name</td>
+        <td>@workorder.Reported</td>
+        <td>@workorder.Reporter</td>
+        <td>@workorder.Priority</td>
+        <td>@workorder.Details</td>
+        @*<td>@workorder.Due</td>
+        <td>@workorder.DaysOverdue</td>
+        <td>@workorder.DaysOpen</td>*@
+    </tr>
+    }
+
+</table>
+
+<div>
+
+    <p>
+        @*@Model.User.Claims;*@
+        @*@foreach claim in Model.User.Claims*@
+    </p>
+</div>
+
+<div>@Model.Message;</div>
